@@ -1,0 +1,27 @@
+Deben resolver el problema 7.7 de las notas y subirlo aquí. Se espera un fichero entrega6.py que implemente las
+funciones mult_pol_mod(f,g,p) y mult_ss_mod(f,g,k,p). No se permite importar ninguna librería, es decir,
+el código debe ser autocontenido.
+
+La función mult_pol_mod(f,g,p) debe calcular el producto de los polinomios f y g en el anillo (Z/pZ)[x],
+donde f, g, y el resultado están representados por la lista sus coeficientes (enteros entre 0 y p-1), p!= 2,
+empezando por el término independiente. Si el polinomio es de grado d>=0, corresponderá con una lista de
+longitud d+1, y el polinomio nulo será representado por la lista vacía [].
+
+Por ejemplo, la llamada mult_pol_mod([1,2,3], [4,5], 7) debe devolver [4,6,1,1], ya que
+(1+2x+3x^2)*(4+5x)=4+6x+x^2+x^3 en(Z/7Z)[x].
+
+La función mult_ss_mod(f,g,k,p) debe calcular el producto de los polinomios f y g en el anillo (Z/pZ)[x]/<x^(2^k)+1>,
+donde f, g, y el resultado están representados por la lista sus 2^k coeficientes (enteros entre 0 y p-1),
+empezando por el término independiente.
+En esta función, las listas que representan f, g, y el resultado son de longitud exactamente 2^k.
+
+Por ejemplo, la llamada mult_ss_mod([1,2,3,4], [4,5,6,6], 2, 7) deberá devolver [3,6,4,0], ya que
+(1+2x+3x^2+4x^3)*(4+5x+6x^2+6x^3)=3+6x+4x^2 en (Z/7Z)[x]/<x^4+1>.
+Esta función debe implementar el método de Schonhage-Strassen de forma recursiva con casos bases k=0,1,2.
+
+Casos de prueba:
+
+mult_pol_mod([5, 4, 0, 6, 0, 5, 3, 0, 3, 2, 3], [2, 0, 3, 3, 6, 4, 1, 0, 6, 6, 5], 7) --> [3, 1, 1, 4, 0, 2, 3, 6, 0, 5, 4, 4, 2, 2, 0, 1, 1, 2, 3, 0, 1]
+mult_ss_mod([7, 6, 12, 10, 12, 8, 10, 6, 10, 2, 1, 10, 8, 0, 7, 7], [5, 8, 9, 8, 9, 9, 4, 9, 9, 8, 4, 10, 8, 11, 4, 4], 4, 13) --> [2, 3, 4, 4, 4, 5, 10, 4, 7, 3, 3, 9, 11, 1, 5, 5]
+
+El plazo de entrega acaba el dia 10/dic/2023 a las 23:59pm.
